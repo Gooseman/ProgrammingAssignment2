@@ -10,7 +10,7 @@
 ## inverse.  The set function can be used to change the matrix.
 makeCacheMatrix <- function(x = matrix()) {
     inverseMatrix <- NULL
-    
+
     set <- function(y)
     {
         x <<- y
@@ -21,7 +21,7 @@ makeCacheMatrix <- function(x = matrix()) {
     setinverse <- function(inv) inverseMatrix <<- inv
     getinverse <- function() inverseMatrix
 
-    list(set = set
+    list(set = set,
          get = get,
          setinverse = setinverse,
          getinverse = getinverse)
@@ -59,5 +59,5 @@ invertMatrix <- function(m) {
         inverseMatrix <- inverse(m)
     }
 
-    return inverseMatrix
+    inverseMatrix
 }
