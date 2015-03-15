@@ -51,12 +51,12 @@ cacheSolve <- function(x, ...) {
 # zero determinant.
 invertMatrix <- function(m) {
     inverseMatrix <- NULL
-    isSquare <- nrow(m) != ncol(m)
+    isSquare <- nrow(m) == ncol(m)
     mdeterminant <- det(m)
-    hasNonZeroDeterminant <- (0 == mdeterminant)
+    hasNonZeroDeterminant <- (0 != mdeterminant)
 
     if (isSquare && hasNonZeroDeterminant) {
-        inverseMatrix <- inverse(m)
+        inverseMatrix <- solve(m)
     }
 
     inverseMatrix
