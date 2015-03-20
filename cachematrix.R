@@ -48,14 +48,15 @@ cacheSolve <- function(x, ...) {
 }
 
 # The inverse of a matrix is calculable if the matrix is square and has a non-
-# zero determinant.
+# zero, numeric, finite determinant.
 invertMatrix <- function(m) {
     inverseMatrix <- NULL
     isSquare <- nrow(m) == ncol(m)
     mdeterminant <- det(m)
     hasNonZeroDeterminant <- (0 != mdeterminant)
+    hasValidDeterminant <- !is.nan(mdeterminant) & !is.infinite(mdeterminant)
 
-    if (isSquare && hasNonZeroDeterminant) {
+    if (isSquare & hasNonZeroDeterminant & hasValidDeterminant) {
         inverseMatrix <- solve(m)
     }
 
